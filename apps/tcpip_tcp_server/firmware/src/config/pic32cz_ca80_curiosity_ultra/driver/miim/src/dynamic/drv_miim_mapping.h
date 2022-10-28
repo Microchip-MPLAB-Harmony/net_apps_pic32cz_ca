@@ -5,18 +5,18 @@
     Microchip Technology Inc.
 
   File Name:
-    drv_miim_local.h
+    drv_miim_mapping.h
 
   Summary:
-    MIIM driver local declarations and definitions.
+    MIIM driver mapping for different internal MACs.
 
   Description:
-    This file contains the MIIM driver's local declarations and definitions.
+    This file contains routines for MIIM driver register access.
 *******************************************************************************/
 
 //DOM-IGNORE-BEGIN
 /*****************************************************************************
- Copyright (C) 2013-2018 Microchip Technology Inc. and its subsidiaries.
+ Copyright (C) 2018-2022 Microchip Technology Inc. and its subsidiaries.
 
 Microchip Technology Inc. and its subsidiaries.
 
@@ -107,19 +107,17 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 
     static  __inline__ void __attribute__((always_inline))_DRV_MIIM_MNGMNT_PORT_ENABLE(uintptr_t ethPhyId)
     {
-        ETH_REGS->ETH_NCR |=    ETH_NCR_MPE_Msk;
+        ETH_REGS->ETH_NCR |=    ETH_NCR_MPE_Msk;        
     }
     
     static  __inline__ void __attribute__((always_inline))_DRV_MIIM_MNGMNT_PORT_DISABLE(uintptr_t ethPhyId)
     {
-        ETH_REGS->ETH_NCR &= ~ETH_NCR_MPE_Msk;
-       
+        ETH_REGS->ETH_NCR &= ~ETH_NCR_MPE_Msk; 
     }
     
     static  __inline__ bool __attribute__((always_inline))_DRV_MIIM_IS_BUSY(uintptr_t ethPhyId)
     {
-        bool    phyBusy = (ETH_REGS->ETH_NSR & ETH_NSR_IDLE_Msk) != ETH_NSR_IDLE_Msk;
-        
+        bool    phyBusy = (ETH_REGS->ETH_NSR & ETH_NSR_IDLE_Msk) != ETH_NSR_IDLE_Msk;        
         return phyBusy;        
     }
     
@@ -152,21 +150,18 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
    
     static  __inline__ void __attribute__((always_inline))_DRV_MIIM_OP_READ_START(uintptr_t ethPhyId, DRV_MIIM_OP_DCPT* pOpDcpt)
     {
-        ETH_REGS->ETH_MAN = 
-                                (~ETH_MAN_WZO_Msk & ETH_MAN_CLTTO_Msk)
+        ETH_REGS->ETH_MAN =      (~ETH_MAN_WZO_Msk & ETH_MAN_CLTTO_Msk)
                                  | (ETH_MAN_OP(0x2)) 
                                  | ETH_MAN_WTN(0x02) 
                                  | ETH_MAN_PHYA(pOpDcpt->phyAdd) 
                                  | ETH_MAN_REGA(pOpDcpt->regIx) 
-                                 | ETH_MAN_DATA(0);
-     
+                                 | ETH_MAN_DATA(0); 
     }
     
                                  
     static  __inline__ uint16_t __attribute__((always_inline))_DRV_MIIM_OP_READ_DATA_GET(uintptr_t ethPhyId)
     {
-        return (uint16_t)(ETH_REGS->ETH_MAN & ETH_MAN_DATA_Msk) ;
-       
+        return (uint16_t)(ETH_REGS->ETH_MAN & ETH_MAN_DATA_Msk) ;        
     }
 
     static  __inline__ void __attribute__((always_inline))_DRV_MIIM_CLEAR_DATA_VALID(uintptr_t ethPhyId)
@@ -187,6 +182,7 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
     { 
         uint32_t mdc_div; 
         GMAC_MIIM_CLK clock_dividor ; 
+        bool tx_stat, rx_stat;
         mdc_div = hostClock/maxMIIMClock; 
         if (mdc_div <= 8 ) 
         { 
@@ -216,16 +212,36 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
         { 
             clock_dividor = 0; 
         } 
-        ETH_REGS->ETH_NCR &= ~ETH_NCR_TXEN_Msk; 
-        ETH_REGS->ETH_NCR &= ~ETH_NCR_RXEN_Msk; 
+        
+        //disable tx if it is already enabled
+        tx_stat = ETH_REGS->ETH_NCR & ETH_NCR_TXEN_Msk;
+        if(tx_stat)
+        {
+            ETH_REGS->ETH_NCR &= ~ETH_NCR_TXEN_Msk; 
+        }
+        
+        //disable rx if it is already enabled
+        rx_stat = ETH_REGS->ETH_NCR & ETH_NCR_RXEN_Msk;
+        if(rx_stat)
+        {
+            ETH_REGS->ETH_NCR &= ~ETH_NCR_RXEN_Msk; 
+        }
         ETH_REGS->ETH_NCFGR =   (ETH_REGS->ETH_NCFGR & 
                                 (~ETH_NCFGR_CLK_Msk)) | 
                                 (clock_dividor << ETH_NCFGR_CLK_Pos); 
-        ETH_REGS->ETH_NCR |= ETH_NCR_TXEN_Msk; 
-        ETH_REGS->ETH_NCR |= ETH_NCR_RXEN_Msk;
-        
+        //enable tx if it was previously enabled
+        if(tx_stat)
+        {
+            ETH_REGS->ETH_NCR |= ETH_NCR_TXEN_Msk; 
+        }
+        //enable rx if it was previously enabled
+        if (rx_stat)
+        {
+            ETH_REGS->ETH_NCR |= ETH_NCR_RXEN_Msk;  
+        }
             
     } 
+
 
 
 #endif //#ifndef _DRV_MIIM_MAPPING_H

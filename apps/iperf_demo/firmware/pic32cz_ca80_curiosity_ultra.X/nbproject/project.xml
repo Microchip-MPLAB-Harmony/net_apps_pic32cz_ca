@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>iperf_demo_pic32cz_ca80_curiosity_ultra</name>
+            <name>iperf_demo</name>
             <creation-uuid>ae7f0e76-55ff-4135-8c65-aadf6340e63f</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
