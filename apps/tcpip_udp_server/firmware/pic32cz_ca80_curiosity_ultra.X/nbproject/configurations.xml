@@ -612,6 +612,10 @@
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
+      <C32-CO>
+        <property key="coverage-enable" value=""/>
+        <property key="stack-guidance" value="false"/>
+      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
@@ -731,7 +735,7 @@
         <property key="memories.programmemory.ranges" value="0-9fffffff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
-                  value="C:/00_Repo/H3/net_apps_pic32cz_ca/apps/tcpip_udp_server/firmware/pic32cz_ca80_curiosity_ultra.X/debug/pic32cz_ca80_curiosity_ultra/pic32cz_ca80_curiosity_ultra_ptg"/>
+                  value="C:/00_Repo/H3/net_apps_pic32cz_ca/apps/tcpip_tcp_server/firmware/pic32cz_ca80_curiosity_ultra.X/debug/pic32cz_ca80_curiosity_ultra/pic32cz_ca80_curiosity_ultra_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>

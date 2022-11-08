@@ -671,6 +671,10 @@
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
+      <C32-CO>
+        <property key="coverage-enable" value=""/>
+        <property key="stack-guidance" value="false"/>
+      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>

@@ -297,28 +297,19 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;ComponentGraph dnOrder=&quot;0&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipCmd&quot; x=&quot;200&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipStack&quot; x=&quot;22&quot; y=&quot;19&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;TCP/IP STACK&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;APPLICATION LAYER&quot; x=&quot;220&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;BASIC CONFIGURATION&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;DATA LINK LAYER&quot; x=&quot;231&quot; y=&quot;79&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;NETWORK LAYER&quot; x=&quot;580&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;TRANSPORT LAYER&quot; x=&quot;400&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;GraphSettings canvasHeight=&quot;584&quot; canvasWidth=&quot;759&quot; dnOrder=&quot;2&quot;/&gt;
-    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;0&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipUdp&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;__ROOTVIEW&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;NETWORK LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipArp&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipIPv4&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipIcmp&quot; x=&quot;160&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;31&quot; y=&quot;76&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;TCP/IP STACK&quot; x=&quot;616&quot; y=&quot;176&quot;/&gt;
@@ -334,20 +325,13 @@
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;sys_time&quot; x=&quot;384&quot; y=&quot;387&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;5&quot; id=&quot;APPLICATION LAYER&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipDhcp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDns&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipCmd&quot; x=&quot;200&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipStack&quot; x=&quot;22&quot; y=&quot;19&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;6&quot; id=&quot;NETWORK LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipArp&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipIPv4&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipIcmp&quot; x=&quot;160&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;7&quot; id=&quot;DATA LINK LAYER&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;DATA LINK LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;drvExtPhyKsz9031&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;drvGmac&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
@@ -355,6 +339,22 @@
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipNetConfig&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;5&quot; id=&quot;APPLICATION LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipDhcp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDns&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;6&quot; id=&quot;TCP/IP STACK&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;APPLICATION LAYER&quot; x=&quot;220&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;BASIC CONFIGURATION&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;DATA LINK LAYER&quot; x=&quot;231&quot; y=&quot;79&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;NETWORK LAYER&quot; x=&quot;580&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;TRANSPORT LAYER&quot; x=&quot;400&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;GraphSettings canvasHeight=&quot;584&quot; canvasWidth=&quot;759&quot; dnOrder=&quot;7&quot;/&gt;
   &lt;/UserData&gt;
 &lt;/UserData&gt;
 </value>
@@ -362,6 +362,39 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="#&amp;__MCC_Group_Parrent_id"/>
          <value>__ROOTVIEW</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_DFLL_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_CLOCK_DFLL_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_PLL0_PLLREFDIV_REFDIV"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_CLOCK_PLL0_PLLREFDIV_REFDIV&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;3&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_PLL0_REF_CLOCK"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_CLOCK_PLL0_REF_CLOCK&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_PLL1_ENABLE"/>
@@ -408,6 +441,28 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_PLL1_PLLREFDIV_REFDIV"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_CLOCK_PLL1_PLLREFDIV_REFDIV&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;3&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_PLL1_REF_CLOCK"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_CLOCK_PLL1_REF_CLOCK&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_RTC_SRC"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_CLOCK_RTC_SRC&quot;&gt;
@@ -419,11 +474,33 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_CLOCK_XOSC_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_CLOCK_XOSC_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONF_CLOCK_XOSC32K_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;CONF_CLOCK_XOSC32K_ENABLE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CPU_CLOCK_FREQUENCY"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CPU_CLOCK_FREQUENCY&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;300000000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -456,7 +533,18 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;DATA_CACHE_ENABLE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="DFLL_CLOCK_FREQ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;DFLL_CLOCK_FREQ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -534,6 +622,28 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;ETH_TX_CLOCK_FREQUENCY&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;125000000&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_0_FREQ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_0_FREQ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;300000000&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_1_FREQ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_1_FREQ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;150000000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -666,6 +776,17 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_INST_NUM2&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="MAIN_CLOCK_FREQUENCY"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;MAIN_CLOCK_FREQUENCY&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;300000000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -3389,6 +3510,50 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PLL0_CLOCK_FREQ0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PLL0_CLOCK_FREQ0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;300000000&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PLL0_CLOCK_FREQ1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PLL0_CLOCK_FREQ1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PLL0_CLOCK_FREQ2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PLL0_CLOCK_FREQ2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PLL0_CLOCK_FREQ3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PLL0_CLOCK_FREQ3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PLL1_CLOCK_FREQ0"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;PLL1_CLOCK_FREQ0&quot;&gt;
@@ -5204,6 +5369,41 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="SYSTICK_PERIOD"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;SYSTICK_PERIOD&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x493E0&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="SYSTICK_PERIOD_MS"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;SYSTICK_PERIOD_MS&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Float dnOrder=&quot;0&quot; id=&quot;max&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;55.92405&lt;/Value&gt;
+      &lt;/Float&gt;
+    &lt;/Attributes&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="SYSTICK_PERIOD_US"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;SYSTICK_PERIOD_US&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;1000&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="XC32_HEAP_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;XC32_HEAP_SIZE&quot;&gt;
@@ -5232,6 +5432,28 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;XOSC32K_FREQ&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;32768&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="XOSC_FREQ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;XOSC_FREQ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;12000000&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="XOSC_OSCILLATOR_MODE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;XOSC_OSCILLATOR_MODE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6909,7 +7131,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\startup_xc32.c</file>
-         <hash>a573589c254f6916d8719746d85cc574e60c17b6ba3c371009aa6131403b0347</hash>
+         <hash>8fbd03e386f55bf860e0e48a26ff45c846a9f6ee2b2516116f13b21d040be99d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\berkeley_api.h</file>
@@ -7053,7 +7275,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\peripheral\clock\plib_clock.c</file>
-         <hash>4de114403df48589590c6e3154f04ea83c13085d932c71fe36742da0574254ec</hash>
+         <hash>1d57e512ca702135884a838f392a3d777b8c5f1d0155bc5a84d7b7acf71f72ea</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\tasks.c</file>
@@ -7561,7 +7783,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\device_cache.h</file>
-         <hash>079fd3e8819d4bdecd46b1e720a3d8e01dc62df9f84f9c93e2e5b30e53d222ea</hash>
+         <hash>90ab2a7320a2a8c1123fb5d297dfaa0f56e3cb28c3ad1ea2ab5633988c1ef252</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\ipv4_private.h</file>

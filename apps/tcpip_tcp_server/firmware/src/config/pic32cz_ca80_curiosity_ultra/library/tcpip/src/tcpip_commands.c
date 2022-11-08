@@ -325,7 +325,7 @@ static void                 TCPIPCmdDnsTask(void);
 
 #if defined(_TCPIP_COMMAND_PING4)
 
-static int                  _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
+static void                 _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 
 static void                 CommandPingHandler(const  TCPIP_ICMP_ECHO_REQUEST* pEchoReq, TCPIP_ICMP_REQUEST_HANDLE iHandle, TCPIP_ICMP_ECHO_REQUEST_RESULT result, const void* param);
 
@@ -442,7 +442,7 @@ static const SYS_CMD_DESCRIPTOR    tcpipCmdTbl[]=
     {"dhcps",       _CommandDHCPsOptions,                       ": DHCP server commands"},
 #endif  //  defined(TCPIP_STACK_USE_DHCP_SERVER)
 #if defined(_TCPIP_COMMAND_PING4)
-    {"ping",        (SYS_CMD_FNC)_CommandPing,                  ": Ping an IP address"},
+    {"ping",        _CommandPing,                  ": Ping an IP address"},
 #endif  // defined(_TCPIP_COMMAND_PING4)
 #if defined(_TCPIP_COMMAND_PING6)
     {"ping6",       (SYS_CMD_FNC)_Command_IPv6_Ping,            ": Ping an IPV6 address"},
@@ -1393,6 +1393,7 @@ static void _CommandDhcpv6Options(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** 
     {
         (*pCmdIO->pCmdApi->print)(cmdIoParam, "Usage: %s <interface> on/off/info\r\n", argv[0]);
         (*pCmdIO->pCmdApi->print)(cmdIoParam, "Usage: %s <interface> ia state ix \r\n", argv[0]);
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "Usage: %s <interface> release addr\r\n", argv[0]);
         (*pCmdIO->pCmdApi->print)(cmdIoParam, "Ex: %s eth0 on \r\n", argv[0]);
         return;
     }
@@ -1500,6 +1501,19 @@ static void _CommandDhcpv6Options(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** 
         }
     }
 #endif  // defined(TCPIP_DHCPV6_STATISTICS_ENABLE) && (TCPIP_DHCPV6_STATISTICS_ENABLE != 0)
+    else if (strcmp(argv[2], "release") == 0)
+    {
+        IPV6_ADDR relAddr;
+        if (argc < 4 || !TCPIP_Helper_StringToIPv6Address(argv[3], &relAddr))
+        {
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "DHCPV6: provide an IPv6 address\r\n");
+        }
+        else
+        {
+            res = TCPIP_DHCPV6_AddrRelease(netH, &relAddr);
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "DHCPV6 release returned: %d\r\n", res);
+        }
+    }
     else
     {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "DHCPV6: Unknown option\r\n");
@@ -3293,7 +3307,7 @@ void TCPIPCmdDnsTask(void)
 #endif
 
 #if defined(_TCPIP_COMMAND_PING4)
-static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
+static void _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {
     int     currIx;    
     TCPIP_COMMANDS_STAT  newCmdStat;
@@ -3302,7 +3316,7 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
     if (argc < 2)
     {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping Usage: ping <stop>/<name/address> <i interface> <n nPings> <t msPeriod> <s size>\r\n");
-        return true;
+        return;
     }
 
     if(strcmp(argv[1], "stop") == 0)
@@ -3311,13 +3325,13 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         {
             _PingStop(pCmdIO, cmdIoParam);
         }
-        return true;
+        return;
     }
 
     if(tcpipCmdStat != TCPIP_CMD_STAT_IDLE)
     {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping: command in progress. Retry later.\r\n");
-        return true;
+        return;
     }
 
     // get the host
@@ -3333,7 +3347,7 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         if(strlen(argv[1]) > sizeof(icmpTargetHost) - 1)
         {
             (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping: Host name too long. Retry.\r\n");
-            return true;
+            return;
         }
         strcpy(icmpTargetHost, argv[1]);
         newCmdStat = TCPIP_PING_CMD_DNS_GET;
@@ -3376,7 +3390,7 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
             else
             {
                 (*pCmdIO->pCmdApi->print)(cmdIoParam, "Ping: Data size too big. Max: %d. Retry\r\n", sizeof(icmpPingBuff));
-                return true;
+                return;
             }
 
         }
@@ -3419,8 +3433,6 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
     icmpReqCount = 0;
 
     _TCPIPStackSignalHandlerSetParams(TCPIP_THIS_MODULE_ID, tcpipCmdSignalHandle, icmpReqDelay);
-
-    return true;
 
 }
 

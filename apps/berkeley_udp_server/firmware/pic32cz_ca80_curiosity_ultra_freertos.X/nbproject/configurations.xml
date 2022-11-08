@@ -1075,7 +1075,7 @@
         <property key="memories.programmemory.ranges" value="0-9fffffff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
-                  value="C:/00_Repo/H3/net_apps_pic32cz_ca/apps/berkeley_udp_server/firmware/pic32cz_ca80_curiosity_ultra_freertos.X/debug/pic32cz_ca80_curiosity_ultra_freertos/pic32cz_ca80_curiosity_ultra_freertos_ptg"/>
+                  value="C:/00_Repo/H3/net_apps_pic32cz_ca/apps/tcpip_tcp_server/firmware/pic32cz_ca80_curiosity_ultra_freertos.X/debug/pic32cz_ca80_curiosity_ultra_freertos/pic32cz_ca80_curiosity_ultra_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>

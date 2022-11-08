@@ -1,0 +1,76 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.net_apps_pic32cz_ca_wolfssl_tcp_client_pic32cz_ca80_curiosity_ultra_freertos",
+		"version": "3.7.0",
+		"displayName": "TCP/IP WolfSSL TCP Client Example for PIC32CZ CA Family",
+		"projectName": "wolfssl_tcp_client",
+		"shortDescription": "This configuration demonstrates creating an Internet client that uses the MPLAB Harmony TCP API to create a TCP/IP connection to a Web server. The connection can either be clear text, or it can use TLS to encrypt the connection with wolfSSL. The demonstration can use either IPv4 or IPv6.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.00"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.00"
+			}
+		],
+		"dfp": {
+			"name": "PIC32CZ-CA80_DFP",
+			"semverRange": "^1.0.17"
+		},
+		"configurator": {
+			"name": "MCC",
+			"semverRange": ">=5.2.0"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CZ8110CA80208",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "PIC32CZ CAxx Curiosity ULTRA"
+			],
+			[
+				"Harmony", "Middleware", "TCP/IP", "WOLFSSL_TCP_CLIENT"
+			],
+			[
+				"Middleware", "TCP/IP", "WOLFSSL_TCP_CLIENT"
+			]
+		],
+		"peripherals": [
+			"MAC"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"Middleware",
+			"TCP/IP",
+			"PIC32CZ8110CA80208",
+			"PIC32CZ CA Family",
+			"Ethernet MAC",
+			"GMAC"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
