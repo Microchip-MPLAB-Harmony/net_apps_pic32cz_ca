@@ -3215,8 +3215,8 @@ static int _Command_MacInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         {
             (*pCmdIO->pCmdApi->msg)(cmdIoParam, "\tnot supported\r\n");
         }
-
-    }
+        
+            }
 
     return true;
 }

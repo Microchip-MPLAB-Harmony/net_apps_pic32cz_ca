@@ -857,7 +857,7 @@ TCPIP_MAC_PACKET* DRV_GMAC_PacketRx (DRV_HANDLE hMac, TCPIP_MAC_RES* pRes, TCPIP
 		mRes = TCPIP_MAC_RES_PENDING;
 	}
 	else if(ethRes == DRV_PIC32CGMAC_RES_OK)
-	{   
+	{           
 		mRes = TCPIP_MAC_RES_OK;
 		pMACDrv->sGmacData._rxStat.nRxOkPackets++;		
 	}
