@@ -1,4 +1,4 @@
-<config configName="pic32cz_ca80_curiosity_ultra" projectName="web_net_server_nvm_mpfs" configVersion="1.1" device="PIC32CZ8110CA80208" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.12">
+<config configName="pic32cz_ca80_curiosity_ultra" projectName="web_net_server_nvm_mpfs" configVersion="1.1" device="PIC32CZ8110CA80208" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.14">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -413,8 +413,8 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TCP/IP STACK" name="harmonyGroupAttachments"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;Attachments&gt;
   &lt;Attachments dnOrder=&quot;0&quot;&gt;
-    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;net_Pres:Net_Pres_Crypto_Dependency&quot; namespace=&quot;PRESENTATION LAYER&quot; targetAttachmentID=&quot;lib_wolfssl&quot; targetComponentID=&quot;lib_wolfssl&quot;/&gt;
-    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;tcpipStack:Core_SysConsole_Dependency&quot; namespace=&quot;BASIC CONFIGURATION&quot; targetAttachmentID=&quot;sys_console&quot; targetComponentID=&quot;sys_console_0&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;tcpipStack:Core_SysConsole_Dependency&quot; namespace=&quot;BASIC CONFIGURATION&quot; targetAttachmentID=&quot;sys_console&quot; targetComponentID=&quot;sys_console_0&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;net_Pres:Net_Pres_Crypto_Dependency&quot; namespace=&quot;PRESENTATION LAYER&quot; targetAttachmentID=&quot;lib_wolfssl&quot; targetComponentID=&quot;lib_wolfssl&quot;/&gt;
   &lt;/Attachments&gt;
 &lt;/Attachments&gt;
 </value>
@@ -439,11 +439,17 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;ComponentGraph dnOrder=&quot;0&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;0&quot; id=&quot;APPLICATION LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipCmd&quot; x=&quot;200&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipStack&quot; x=&quot;22&quot; y=&quot;19&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpip_basic_config&quot; x=&quot;380&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipAnnounce&quot; x=&quot;340&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDhcp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipDns&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipHttpNet&quot; x=&quot;500&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipNbns&quot; x=&quot;1140&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;tcpipSmtpc&quot; x=&quot;820&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;tcpipSntp&quot; x=&quot;660&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;tcpipTelnet&quot; x=&quot;980&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;tcpip_apps_config&quot; x=&quot;30&quot; y=&quot;140&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
     &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;PRESENTATION LAYER&quot;&gt;
@@ -451,26 +457,7 @@
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;net_Pres&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;DATA LINK LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;drvExtPhyKsz9031&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;drvGmac&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;drvMiim&quot; x=&quot;420&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipNetConfig&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;NETWORK LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipArp&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipIPv4&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipIPv6&quot; x=&quot;440&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipIcmp&quot; x=&quot;160&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipIcmpv6&quot; x=&quot;720&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;tcpipNdp&quot; x=&quot;580&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;tcpip_network_config&quot; x=&quot;860&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;__ROOTVIEW&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;20&quot; y=&quot;143&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;TCP/IP STACK&quot; x=&quot;648&quot; y=&quot;301&quot;/&gt;
@@ -492,33 +479,7 @@
         &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_time&quot; x=&quot;313&quot; y=&quot;459&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;5&quot; id=&quot;APPLICATION LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipAnnounce&quot; x=&quot;340&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDhcp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipDns&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipHttpNet&quot; x=&quot;500&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipNbns&quot; x=&quot;1140&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;tcpipSmtpc&quot; x=&quot;820&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;tcpipSntp&quot; x=&quot;660&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;tcpipTelnet&quot; x=&quot;980&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;tcpip_apps_config&quot; x=&quot;30&quot; y=&quot;140&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;6&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipTcp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipUdp&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpip_transport_config&quot; x=&quot;320&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;GraphSettings canvasHeight=&quot;708&quot; canvasWidth=&quot;791&quot; dnOrder=&quot;7&quot;/&gt;
-    &lt;ComponentGraph dnOrder=&quot;8&quot; id=&quot;DRIVER LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpip_driver_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;9&quot; id=&quot;TCP/IP STACK&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;TCP/IP STACK&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;APPLICATION LAYER&quot; x=&quot;220&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;BASIC CONFIGURATION&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
@@ -527,6 +488,45 @@
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;NETWORK LAYER&quot; x=&quot;580&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;PRESENTATION LAYER&quot; x=&quot;740&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;TRANSPORT LAYER&quot; x=&quot;400&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipCmd&quot; x=&quot;200&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipStack&quot; x=&quot;22&quot; y=&quot;19&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpip_basic_config&quot; x=&quot;380&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;5&quot; id=&quot;DATA LINK LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;drvExtPhyKsz9031&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;drvGmac&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;drvMiim&quot; x=&quot;420&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipNetConfig&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;6&quot; id=&quot;NETWORK LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipArp&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipIPv4&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipIPv6&quot; x=&quot;440&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipIcmp&quot; x=&quot;160&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipIcmpv6&quot; x=&quot;720&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;tcpipNdp&quot; x=&quot;580&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;tcpip_network_config&quot; x=&quot;860&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;GraphSettings canvasHeight=&quot;708&quot; canvasWidth=&quot;791&quot; dnOrder=&quot;7&quot;/&gt;
+    &lt;ComponentGraph dnOrder=&quot;8&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipTcp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipUdp&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpip_transport_config&quot; x=&quot;320&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;9&quot; id=&quot;DRIVER LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpip_driver_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -6534,7 +6534,17 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="net_Pres" name="!@#harmonyAttachmentState"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;net_Pres&gt;
-  &lt;net_Pres dnOrder=&quot;0&quot;/&gt;
+  &lt;net_Pres dnOrder=&quot;0&quot;&gt;
+    &lt;Attachments dnOrder=&quot;0&quot;&gt;
+      &lt;GenericDependency dnOrder=&quot;0&quot; id=&quot;Net_Pres_SNTP_Dependency&quot;&gt;
+        &lt;Attributes dnOrder=&quot;0&quot;&gt;
+          &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+            &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+          &lt;/Boolean&gt;
+        &lt;/Attributes&gt;
+      &lt;/GenericDependency&gt;
+    &lt;/Attachments&gt;
+  &lt;/net_Pres&gt;
 &lt;/net_Pres&gt;
 </value>
       </entry>
@@ -8485,14 +8495,6 @@
          <hash>6b85768942dc511d73f6be8fe1b04c2efe3c67cbb09149eb762b21ba89f81c4b</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\header.htm</file>
-         <hash>682a7c917dbabe94e078f16f8148692217292309b6cbc1345ad83cdf178416c3</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\protect\index.htm</file>
-         <hash>d7d4cea4cbf82bced90ecf006d2bad09f17ff8dc37a492a7df834ce95fcdf087</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\src\ocsp.c</file>
          <hash>21b9619fe0bb40099ec985b4e21053ecaa98429027a0c71f3de3b4722516ca30</hash>
       </entry>
@@ -8602,7 +8604,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\tcpip_commands.c</file>
-         <hash>80fde4b5b49650a822b3d9d7534c0655842e74e9bbf353d88b9f3b42f3107788</hash>
+         <hash>c29397f6425469b2a59fddec84aad89f5875ab3182a5f50a300b85fc90cefa17</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\lldp_private.h</file>
@@ -8774,7 +8776,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\http_net_private.h</file>
-         <hash>00d7d01ef11c16f50a884eb439c025d8c08088edeccaae1061a31d26ecf0c4f7</hash>
+         <hash>fb7bef3cb16f55bbcd0b7c6b2e54db3cfb3cc45f0c0135c6fc8c4ab87b5c8a41</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\net_pres\pres\net_pres_enc_glue.c</file>
@@ -8899,10 +8901,6 @@
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\instance\tcc8.h</file>
          <hash>26a34630c743afec7d9656c492781bd022eae8d506e76352aa847016c3d6bf24</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\dyndns\index.htm</file>
-         <hash>70e43d97dd050840a1a15f6cd3633bcf6d6605f71acbdd1f99d77549a8892b52</hash>
       </entry>
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\component\sercom.h</file>
@@ -9034,15 +9032,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\tcpip_mac_object.h</file>
-         <hash>20a88a71ee17a4699f2dfb9b91d4f06d3ac40cbbd2873af66b31d957828a3214</hash>
+         <hash>9b96c3129981b3788e6181ee317944215ee3ef3c55d3e90f679d6b57dc6a10d1</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\des3.c</file>
          <hash>9340473761dce1b0a739a024c6aa304bfd7ae30696fb9df4e74ee2739fe7fa01</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\harmony.gif</file>
-         <hash>d1e25de2fba34497b7545e69098eb69278320bc4623f6e6a5df18fda34dd60bb</hash>
       </entry>
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\component\eth.h</file>
@@ -9067,10 +9061,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\aes.c</file>
          <hash>17482921bf38fdb6ca77b0929b8e20a1ba936b325cdcd4320b641e2e13321bdb</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\cookies.htm</file>
-         <hash>36690e50ccea7b3e9e3efdd045f6140cda310bb86c1964ae7e9eb35ad746af52</hash>
       </entry>
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\component\pac.h</file>
@@ -9139,10 +9129,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\cmac.c</file>
          <hash>bd72a1bfdb1ac4b10272bd6087285ce76dd1b9f313f8ca4ff3aa9d11af19fd52</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\email\index.htm</file>
-         <hash>0022ac2831987cd67061d3d8f3b5ea8442e17ee750679b7a2f82fe8ab10ad4df</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\common\sys_fs_shell.c</file>
@@ -9227,10 +9213,6 @@
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\system\system_common.h</file>
          <hash>0dbf2f60b29c97426e70187bc59c652ab5a355f51cfbe3f195ff1c8c6c0b1602</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\snmp.bib</file>
-         <hash>b4334dec551e7373358a0bb18971220f7598a474efaf282c6a73601d7edf5c8a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\snmpv3.h</file>
@@ -9349,10 +9331,6 @@
          <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\mchp.gif</file>
-         <hash>e36c064ac4d20b3bb69e4c47ef7f123ee370b5c9e22d3901dfa8175ab356d5cf</hash>
-      </entry>
-      <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\instance\fuses.h</file>
          <hash>85ab34ed0cc815c83748fc0a7e4bd439b0aa5049f14ee7003741c42f214eb9db</hash>
       </entry>
@@ -9401,10 +9379,6 @@
          <hash>311dcbba0db3dc536362672031c672f408dff4494dfb944f6a0a05261c49792c</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\forms.htm</file>
-         <hash>6134090bac00679aabbb6f827befa30c12ac9f1c21fae0f3cbdbe043cb1b597e</hash>
-      </entry>
-      <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\instance\sercom2.h</file>
          <hash>2e8c9de208e433e9aa22f3b4c9e0bc69627deddd83a655d5a913cc130214d234</hash>
       </entry>
@@ -9427,10 +9401,6 @@
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\component\tram.h</file>
          <hash>574ddd9312daef7c0f4cf8c0787ee7f01a73d447e76bc2f92a3478861c06876e</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\upload.htm</file>
-         <hash>f7bfa1bacfcf72767dc70f218f147ee976a801a0687ac8251a989e6cddc949e9</hash>
       </entry>
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\component\can.h</file>
@@ -9537,10 +9507,6 @@
          <hash>3cf9fc9cb702cbb5802a8bdfc2798586b8f1545f8a723c35d83e9b8021250cf6</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\snmp\snmpconfig.htm</file>
-         <hash>faec288c8e65db59b321bcdad51287cae1d1ef4e6ed049f1e36fbafe670c8c49</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\port\pic32\pic32mz-crypt.c</file>
          <hash>fed3e8f5e982656e5dfd3a703d677a8595cb73b8425a59474c2a4050a531db79</hash>
       </entry>
@@ -9583,10 +9549,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_RedMod_pb.h</file>
          <hash>68a483b948ba5d67db2a45b2b980809cc0d2f2fc90500671abf98b6c6890a026</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\dynvars.htm</file>
-         <hash>6626331dabca89c98a78385c9bc3e6cb1d99ffa721df0bd182ea0a7992ed98e8</hash>
       </entry>
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\instance\ebi.h</file>
@@ -9661,10 +9623,6 @@
          <hash>6c099a7eec35f6616268280710e4b4cc525c021f4c086dace8910c9e3bf0105d</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\protect\reboot.htm</file>
-         <hash>0d33c325ab186d058b6e0259207394ead62b430e007e009b1a70d1f0cfd05f37</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\peripheral\mpu\plib_mpu.h</file>
          <hash>727520c5779c12c056e19f9dbcdf96bd8456ef3aa0e3a25773a285b04376d015</hash>
       </entry>
@@ -9685,12 +9643,8 @@
          <hash>a54c11e3bc0df83ce62f88ab10cbc5da78493c57bd4d3e2742293cfcfee334ef</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\mchp.js</file>
-         <hash>cdfd5bfd7b77eca7d461867016deab50607c3f94e1efd4a0d58f6f3874e4c9a1</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\tcpip_mac.h</file>
-         <hash>37f04d8f893a220d9d027cf32889cd090e545aa8995766ad1e9b371860176759</hash>
+         <hash>7bd5b120588392b86442fe81eb5547bc3985af8dd6252ab7fa039648724094f1</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\port\pic32\crypt_rsa_pukcl.c</file>
@@ -9778,7 +9732,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\driver\ethphy\src\dynamic\drv_ethphy.c</file>
-         <hash>968cbd8f026d82add35c8f6c26dd26a1cedb84fa544782dc535398b3016f8660</hash>
+         <hash>887ba6a84121ed0ca836289b29150b86719f6d87f49b1ddfc76c19b6b3d5f750</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\driver\driver_common.h</file>
@@ -9871,14 +9825,6 @@
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\peripheral\fcw\plib_fcw.c</file>
          <hash>7d3abbed25014eeeda7166ccf38a8b45264550bc517e6337787446588910458b</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\mchp.css</file>
-         <hash>f0ec8631cc4eac975f0aef8a2189b78eeefeaab7f3e592202ca78ecbdd266fb6</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\protect\reboot.cgi</file>
-         <hash>e85cf70ba6be2d44e34a7f1cb9d283b6c3e763b7e5b2d7ff29f9119ac2a81140</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\sp_cortexm.c</file>
@@ -10054,7 +10000,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\http_net.c</file>
-         <hash>ab62e9134ac1674db1bbaffd1e8f0ed3ce2d2e78a9769515b508356d56847462</hash>
+         <hash>87e14ada3832ef546c1da698fe6ff9e5c2dcc0a9b71fff6eaff0b35754fd068c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\tcpip_notify.h</file>
@@ -10129,10 +10075,6 @@
          <hash>faf558763dc638c7d701259fe5fb3977568e4d710b2c51b094714ea8276e66fe</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\auth.htm</file>
-         <hash>91addf17beea9f7b5552c9898884bb680e872f2e617d5cc784cfbc8df0750f97</hash>
-      </entry>
-      <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\instance\sqi0.h</file>
          <hash>8f080735a0e13d1d88ba4c7163747971f9ecd8970ca1900b217f6a7f7381ad9b</hash>
       </entry>
@@ -10170,7 +10112,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\driver\gmac\drv_gmac.h</file>
-         <hash>6d3652772ca629b0470e01e00a7f43072b682acd99b1baa05b6bd97f77f2faea</hash>
+         <hash>dbc7fe064793bcb42959b3d00153b32c7f6a9631fa1ccffafce3160251c810c2</hash>
       </entry>
       <entry>
          <file>..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_armclang_ltm.h</file>
@@ -10337,20 +10279,12 @@
          <hash>49e3596965c281bbbd7a9818b6e3e3b2b812c6627ae77529490ef18f6776ef1a</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\footer.htm</file>
-         <hash>d74d527800d6cc8d1601b0228942c87b3967ce5fbf173058e7af86b1e381194e</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\driver\gmac\src\drv_gmac_local.h</file>
          <hash>a20d130bfb16bca3d452f2fb8fee5258773ba876437f827e62730baa3fecbfd0</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\tcpip_announce.c</file>
          <hash>da33559fb396670aa9ce89c1cc890a673c92d7130e5c7c0f128ac8d1175202e9</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\status.xml</file>
-         <hash>a832b35c4ce6bb975c155aeb3981a33b97818a21cdaafb80ba8ce42a8a66e87d</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\rabbit.h</file>
@@ -10502,7 +10436,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\http_net_manager.h</file>
-         <hash>7ca773d29b611a4ae5211affb541819f619d3dbbac05ebf92ae5bf01b08a6024</hash>
+         <hash>836d9ae7f5802514475e5168cf5ad235aaee5d5e631ab1135a64271fc5c95aa5</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\srp.c</file>
@@ -10569,10 +10503,6 @@
          <hash>a3b34dc99bbd80aeed655963809d481eab2c5a990945a853f29ecfa14c099a86</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\ssi.htm</file>
-         <hash>b1ca0a45754be42710b8d5c82f9283f96c205ad9a719d53d915e2c07c54e6c26</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_sha224_hw.h</file>
          <hash>7aa8d74276b6835242881fc6a778f3344b7b2d41dc02430f9b114637908ba9da</hash>
       </entry>
@@ -10634,7 +10564,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\library\tcpip\src\dhcpv6_private.h</file>
-         <hash>1f0d6831821cf03435d0c23e932a564b10ebdf4685e1c2c7840b44808330c289</hash>
+         <hash>7ca2639bf41ccc1947c778fcc1133198b5262d703170f7f0d10093db6d038461</hash>
       </entry>
       <entry>
          <file>..\src\main.c</file>
@@ -10753,10 +10683,6 @@
          <hash>b52f09fa757831950568344ad275b4e65676d671eb5db3f7d49aa37fe2529f4d</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\index.htm</file>
-         <hash>38e93993e03cfc668f91baf8947b59e17ce23697a34d41457db770d8ee735a7f</hash>
-      </entry>
-      <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\component\pm.h</file>
          <hash>1c5dca073924c1abddd90fcf57acc60faed92c3befd7918b0f7cfd46ca23bf87</hash>
       </entry>
@@ -10817,10 +10743,6 @@
          <hash>340beda822c47dd9f8f20ad38434e331098e8b627767319f2c84a72c20f42cf2</hash>
       </entry>
       <entry>
-         <file>..\src\web_pages\protect\config.htm</file>
-         <hash>81955cb0d2c805f01c3fad7900eba6a1f8e6ae4133bdfe75b9508f82df771012</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\system_config.h</file>
          <hash>13038f6f3d61e1991b9ce1a1260653f82acef2c62a66181296ff57477640fd65</hash>
       </entry>
@@ -10830,7 +10752,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cz_ca80_curiosity_ultra\configuration.h</file>
-         <hash>9b98785b09a060db8a42eb270a8b7bfeff62fc4cdf92c64e3d32a6fa726c4d35</hash>
+         <hash>a525f50c272c76ab2cee476f08638204f877df5546b77ed739e0e6f9d45bbeb3</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\fe_448.h</file>
@@ -10883,10 +10805,6 @@
       <entry>
          <file>..\src\packs\PIC32CZ8110CA80208_DFP\instance\tcc4.h</file>
          <hash>5bef3d43add2c2eaca077386bb9f3c4208cc04a48452df92e90939f107506f59</hash>
-      </entry>
-      <entry>
-         <file>..\src\web_pages\leds.cgi</file>
-         <hash>c145d94511a017969b9b05aff3dfd59fcb35578a4ca8e2e8056be096a0e4307c</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ecc.c</file>
