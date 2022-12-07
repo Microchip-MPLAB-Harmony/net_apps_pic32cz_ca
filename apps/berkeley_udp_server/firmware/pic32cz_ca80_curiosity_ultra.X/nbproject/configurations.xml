@@ -685,6 +685,16 @@
           <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/startup_xc32.c</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="packs" displayName="packs" projectFiles="true">
+        <logicalFolder name="PIC32CZ8110CA80208_DFP"
+                       displayName="PIC32CZ8110CA80208_DFP"
+                       projectFiles="true">
+          <logicalFolder name="component" displayName="component" projectFiles="true">
+            <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/.eth.h.swp</itemPath>
+            <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/.eth.h.un~</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
       <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
         <logicalFolder name="port" displayName="port" projectFiles="true">
           <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/port/pic32/crypt_sha1_sam11105.c</itemPath>
