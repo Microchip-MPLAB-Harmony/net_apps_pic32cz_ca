@@ -432,6 +432,12 @@ extern "C" {
 
 
 
+/*** NBNS Configuration ***/
+#define TCPIP_STACK_USE_NBNS
+#define TCPIP_NBNS_TASK_TICK_RATE   110
+
+
+
 /*** HTTP NET Configuration ***/
 #define TCPIP_STACK_USE_HTTP_NET_SERVER
 #define TCPIP_HTTP_NET_MAX_HEADER_LEN		    		15
@@ -478,12 +484,6 @@ extern "C" {
 #define TCPIP_HTTP_NET_MALLOC_FUNC                  malloc
 #define TCPIP_HTTP_NET_FREE_FUNC                    free
 #define TCPIP_HTTP_NET_CONSOLE_CMD           		false
-
-
-
-/*** NBNS Configuration ***/
-#define TCPIP_STACK_USE_NBNS
-#define TCPIP_NBNS_TASK_TICK_RATE   110
 
 
 
@@ -632,25 +632,25 @@ extern "C" {
 #define TCPIP_ETH_RX_BUFF_COUNT_THRESHOLD_QUE5          0
 #define TCPIP_ETH_RX_BUFF_ALLOC_COUNT_QUE5              0
 #define TCPIP_ETH_RX_FILTERS                       \
-														TCPIP_MAC_RX_FILTER_TYPE_BCAST_ACCEPT |\
-														TCPIP_MAC_RX_FILTER_TYPE_MCAST_ACCEPT |\
-														TCPIP_MAC_RX_FILTER_TYPE_UCAST_ACCEPT |\
-														TCPIP_MAC_RX_FILTER_TYPE_CRC_ERROR_REJECT |\
-														  0
-	   
+                                                        TCPIP_MAC_RX_FILTER_TYPE_BCAST_ACCEPT |\
+                                                        TCPIP_MAC_RX_FILTER_TYPE_MCAST_ACCEPT |\
+                                                        TCPIP_MAC_RX_FILTER_TYPE_UCAST_ACCEPT |\
+                                                        TCPIP_MAC_RX_FILTER_TYPE_CRC_ERROR_REJECT |\
+                                                          0
+       
 #define TCPIP_ETH_SCREEN1_COUNT_QUE        0 
 #define TCPIP_ETH_SCREEN2_COUNT_QUE        0       
 
 #define TCPIP_ETH_ETH_OPEN_FLAGS                   \
-														TCPIP_ETH_OPEN_AUTO |\
-														TCPIP_ETH_OPEN_FDUPLEX |\
-														TCPIP_ETH_OPEN_HDUPLEX |\
-														TCPIP_ETH_OPEN_1000 |\
-														TCPIP_ETH_OPEN_100 |\
-														TCPIP_ETH_OPEN_10 |\
-														TCPIP_ETH_OPEN_MDIX_AUTO |\
-														TCPIP_ETH_OPEN_GMII |\
-														0
+                                                        TCPIP_ETH_OPEN_AUTO |\
+                                                        TCPIP_ETH_OPEN_FDUPLEX |\
+                                                        TCPIP_ETH_OPEN_HDUPLEX |\
+                                                        TCPIP_ETH_OPEN_1000 |\
+                                                        TCPIP_ETH_OPEN_100 |\
+                                                        TCPIP_ETH_OPEN_10 |\
+                                                        TCPIP_ETH_OPEN_MDIX_AUTO |\
+                                                        TCPIP_ETH_OPEN_GMII |\
+                                                        0
 
 #define TCPIP_ETH_MODULE_ID                       ETH_BASE_ADDRESS
 
