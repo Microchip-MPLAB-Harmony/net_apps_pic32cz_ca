@@ -51,7 +51,7 @@
 #include "plib_sdmmc_common.h"
 
 #define SDMMC1_DMA_NUM_DESCR_LINES        (1U)
-#define SDMMC1_BASE_CLOCK_FREQUENCY       (0U)
+#define SDMMC1_BASE_CLOCK_FREQUENCY       (150000000U)
 #define SDMMC1_MAX_BLOCK_SIZE             (0x200U)
 
 #define SDMMC1_DMA_DESC_TABLE_SIZE   (8U * 1U)
