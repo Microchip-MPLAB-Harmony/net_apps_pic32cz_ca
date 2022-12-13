@@ -46,7 +46,7 @@ This release supports applications for the following development kits
 | PIC32CZ_CA80 Curiosity Ultra Board |
 
 
-## Full release notes
+## Net release notes
 
-- See the full [Net 3.9.0 Release notes](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.9.0)
+- See the [Net 3.9.0 Release notes](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.9.0)
 
