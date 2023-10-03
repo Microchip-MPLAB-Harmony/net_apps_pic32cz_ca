@@ -36,7 +36,7 @@
             <logicalFolder name="miim" displayName="miim" projectFiles="true">
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
-                  <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/driver/miim/src/dynamic/drv_miim_mapping.h</itemPath>
+                  <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/driver/miim/src/dynamic/drv_miim_device.h</itemPath>
                 </logicalFolder>
                 <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/driver/miim/src/drv_miim_local.h</itemPath>
               </logicalFolder>
@@ -260,6 +260,7 @@
           <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/system_definitions.h</itemPath>
           <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/device_cache.h</itemPath>
           <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/config.h</itemPath>
+          <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/sys_tasks.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
@@ -395,6 +396,11 @@
           <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/pic32cz8110ca80208.h</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="system" displayName="system" projectFiles="true">
+        <logicalFolder name="tmr" displayName="tmr" projectFiles="true">
+          <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/system/tmr/sys_tmr.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
         <logicalFolder name="port" displayName="port" projectFiles="true">
           <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/port/pic32/CryptoLib_ZpEccDbl_pb.h</itemPath>
@@ -495,7 +501,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/selftest.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/random.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/dh.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/hc128.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/poly1305.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/memory.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/integer.h</itemPath>
@@ -505,7 +510,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/fips_test.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/certs_test.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/arc4.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/rabbit.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/cpuid.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/mem_track.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ed448.h</itemPath>
@@ -524,13 +528,17 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/cryptocb.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/hmac.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/fe_operations.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/idea.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/mpi_superclass.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/des3.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/visibility.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/md2.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/curve25519.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/asn.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/kdf.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sakke.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/eccsi.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/falcon.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/siphash.h</itemPath>
       </logicalFolder>
       <itemPath>../src/app.h</itemPath>
     </logicalFolder>
@@ -576,6 +584,7 @@
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
                   <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/driver/miim/src/dynamic/drv_miim.c</itemPath>
+                  <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/driver/miim/src/dynamic/drv_miim_pic32cz.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -695,9 +704,7 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_armthumb.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/md2.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/cmac.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/rabbit.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ecc_fp.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/idea.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ecc.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/cpuid.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_c64.c</itemPath>
@@ -732,7 +739,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/misc.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_pkcs11.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/asm.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/hc128.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/hmac.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/chacha20_poly1305.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ge_operations.c</itemPath>
@@ -764,6 +770,11 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/des3.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/memory.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/blake2b.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sakke.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/kdf.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/falcon.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/eccsi.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/siphash.c</itemPath>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
@@ -774,6 +785,7 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
       <itemPath>iperf_demo.mc3</itemPath>
+      <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -784,13 +796,13 @@
         <targetDevice>PIC32CZ8110CA80208</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.20</languageToolchainVersion>
+        <languageToolchainVersion>4.21</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.0.17"/>
+        <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.2.150"/>
         <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
       </packs>
       <ScriptingSettings>
@@ -853,7 +865,6 @@
           <property key="use-indirect-calls" value="false"/>
         </C32>
         <C32-AR>
-          <property key="additional-options-chop-files" value="false"/>
         </C32-AR>
         <C32-AS>
           <property key="assembler-symbols" value=""/>
@@ -880,44 +891,6 @@
           <property key="stack-guidance" value="false"/>
         </C32-CO>
         <C32-LD>
-          <property key="additional-options-use-response-files" value="false"/>
-          <property key="additional-options-write-sla" value="false"/>
-          <property key="allocate-dinit" value="false"/>
-          <property key="code-dinit" value="false"/>
-          <property key="ebase-addr" value=""/>
-          <property key="enable-check-sections" value="false"/>
-          <property key="exclude-floating-point-library" value="false"/>
-          <property key="exclude-standard-libraries" value="false"/>
-          <property key="extra-lib-directories" value=""/>
-          <property key="fill-flash-options-addr" value=""/>
-          <property key="fill-flash-options-const" value=""/>
-          <property key="fill-flash-options-how" value="0"/>
-          <property key="fill-flash-options-inc-const" value="1"/>
-          <property key="fill-flash-options-increment" value=""/>
-          <property key="fill-flash-options-seq" value=""/>
-          <property key="fill-flash-options-what" value="0"/>
-          <property key="generate-16-bit-code" value="false"/>
-          <property key="generate-cross-reference-file" value="false"/>
-          <property key="generate-micro-compressed-code" value="false"/>
-          <property key="heap-size" value="204800"/>
-          <property key="input-libraries" value=""/>
-          <property key="kseg-length" value=""/>
-          <property key="kseg-origin" value=""/>
-          <property key="linker-symbols" value=""/>
-          <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
-          <property key="no-device-startup-code" value="true"/>
-          <property key="no-startup-files" value="false"/>
-          <property key="oXC32ld-extra-opts" value=""/>
-          <property key="optimization-level" value=""/>
-          <property key="preprocessor-macros" value=""/>
-          <property key="remove-unused-sections" value="true"/>
-          <property key="report-memory-usage" value="false"/>
-          <property key="serial-length" value=""/>
-          <property key="serial-origin" value=""/>
-          <property key="stack-size" value=""/>
-          <property key="symbol-stripping" value=""/>
-          <property key="trace-symbols" value=""/>
-          <property key="warn-section-align" value="false"/>
         </C32-LD>
         <C32CPP>
           <property key="additional-warnings" value="false"/>
@@ -950,17 +923,6 @@
           <property key="use-indirect-calls" value="false"/>
         </C32CPP>
         <C32Global>
-          <property key="common-include-directories" value=""/>
-          <property key="gp-relative-option" value=""/>
-          <property key="legacy-libc" value="false"/>
-          <property key="mdtcm" value=""/>
-          <property key="mitcm" value=""/>
-          <property key="mstacktcm" value="false"/>
-          <property key="omit-pack-options" value="1"/>
-          <property key="relaxed-math" value="false"/>
-          <property key="save-temps" value="false"/>
-          <property key="stack-smashing" value=""/>
-          <property key="wpo-lto" value="false"/>
         </C32Global>
       </item>
       <C32>
@@ -977,7 +939,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -1050,7 +1012,7 @@
         <property key="oXC32ld-extra-opts" value=""/>
         <property key="optimization-level" value=""/>
         <property key="preprocessor-macros" value=""/>
-        <property key="remove-unused-sections" value="true"/>
+        <property key="remove-unused-sections" value="false"/>
         <property key="report-memory-usage" value="false"/>
         <property key="serial-length" value=""/>
         <property key="serial-origin" value=""/>
@@ -1240,7 +1202,10 @@
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
         <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
