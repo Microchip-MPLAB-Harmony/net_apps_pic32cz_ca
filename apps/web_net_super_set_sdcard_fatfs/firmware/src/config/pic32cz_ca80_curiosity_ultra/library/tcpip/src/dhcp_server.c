@@ -12,30 +12,28 @@
 *******************************************************************************/
 
 
-/*****************************************************************************
- Copyright (C) 2012-2021 Microchip Technology Inc. and its subsidiaries.
+/*
+Copyright (C) 2012-2023, Microchip Technology Inc., and its subsidiaries. All rights reserved.
 
-Microchip Technology Inc. and its subsidiaries.
+The software and documentation is provided by microchip and its contributors
+"as is" and any express, implied or statutory warranties, including, but not
+limited to, the implied warranties of merchantability, fitness for a particular
+purpose and non-infringement of third party intellectual property rights are
+disclaimed to the fullest extent permitted by law. In no event shall microchip
+or its contributors be liable for any direct, indirect, incidental, special,
+exemplary, or consequential damages (including, but not limited to, procurement
+of substitute goods or services; loss of use, data, or profits; or business
+interruption) however caused and on any theory of liability, whether in contract,
+strict liability, or tort (including negligence or otherwise) arising in any way
+out of the use of the software and documentation, even if advised of the
+possibility of such damage.
 
-Subject to your compliance with these terms, you may use Microchip software 
-and any derivatives exclusively with Microchip products. It is your 
-responsibility to comply with third party license terms applicable to your 
-use of third party software (including open source software) that may 
-accompany Microchip software.
-
-THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
-WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR 
-PURPOSE.
-
-IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
-BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE 
-FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN 
-ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY, 
-THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*****************************************************************************/
+Except as expressly permitted hereunder and subject to the applicable license terms
+for any third-party software incorporated in the software and any applicable open
+source software license terms, no license or other rights, whether express or
+implied, are granted under any patent or other intellectual property rights of
+Microchip or any third party.
+*/
 
 
 
@@ -58,9 +56,6 @@ static int                      dhcpSInitCount = 0;     // initialization count
 static uint8_t                  gDhcpProcPacket[_TCPIP_DHCPS_PROCESS_BUFFER_SIZE];  // RX/TX processing buffer
 static TCPIP_DHCPS_RX_OPTIONS   gRxOptions;             // parsed RX options;
                                                         // this buffer increases as we add more options
-
-static uint32_t                 gDhcpSecCount;        // rough time keeping - sec
-static uint32_t                 gDhcpMsecCount;       // rough time keeping - ms
 
 static TCPIP_DHCPS_LEASE_STATE _DHCPS_ReplyToDiscovery(TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt, BOOTP_HEADER *Header, TCPIP_DHCPS_RX_OPTIONS* pRxOpt, DHCPS_HASH_ENTRY** ppHe);
 static TCPIP_DHCPS_LEASE_STATE _DHCPS_ReplyToRequest(TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt, BOOTP_HEADER* pHeader, TCPIP_DHCPS_RX_OPTIONS* pRxOpt, DHCPS_HASH_ENTRY** ppHe);
@@ -376,33 +371,10 @@ static __inline__ void __attribute__((always_inline)) _DHCPS_AccessUnlock(void)
 }
 #endif  // (_TCPIP_DHCPS_MULTI_THREADED_ACCESS != 0)
 
-
-static __inline__ uint32_t __attribute__((always_inline)) _DHCPS_SecCount(void)
-{
-    return gDhcpSecCount;
-}
-
-static __inline__ uint32_t __attribute__((always_inline)) _DHCPS_MsecCount(void)
-{
-    return gDhcpMsecCount;
-}
-
-static __inline__ uint32_t __attribute__((always_inline)) _DHCPS_SecondCountSet(void)
-{
-    uint32_t tmrFreq = SYS_TMR_SystemCountFrequencyGet();
-    // use a 64 bit count to avoid roll over
-    uint64_t tmrCount = SYS_TMR_SystemCountGet();
-
-    gDhcpSecCount = tmrCount / tmrFreq; 
-    gDhcpMsecCount = tmrCount / (tmrFreq / 1000); 
-
-    return gDhcpSecCount;
-}
-
 static __inline__ void __attribute__((always_inline)) _DHCPS_LeaseRestart(DHCPS_HASH_ENTRY* he, uint32_t leaseTime)
 {
     he->cliLeaseTime = leaseTime;
-    he->leaseStartTime = _DHCPS_SecCount();
+    he->leaseStartTime = _TCPIP_SecCountGet();
     he->leaseEndTime = he->leaseStartTime + he->cliLeaseTime;
 }
 
@@ -840,7 +812,7 @@ static TCPIP_DHCPS_RES _DHCPS_ParseConfigOptions(TCPIP_DHCPS_CLIENT_OPTIONS* pCl
 // if pCliOpt != 0, it actually stores the data; otherwise just parse
 static TCPIP_DHCPS_RES _DHCPS_ParseConfigSglOption(TCPIP_DHCPS_CLIENT_OPTIONS* pCliOpt, const TCPIP_DHCPS_CLIENT_OPTION_CONFIG* pOptConfig)
 {
-    int nSets;
+    int nSets = 0;
 
     TCPIP_DHCPS_RES res = TCPIP_DHCPS_RES_OK;
 
@@ -966,19 +938,20 @@ static void _DHCPS_NotifyClients(TCPIP_NET_IF* pktIf, TCPIP_DHCPS_EVENT_TYPE evT
 
    _DhcpsAssert(evType != 0, __func__, __LINE__);
 
-    bool doNotify;
+    bool doNotify = false;
 
 #if (TCPIP_DHCPS_REPORT_ERROR_EVENT != 0)
     if(evType < 0)
     {
         doNotify = true;
     }
-#elif (TCPIP_DHCPS_REPORT_CLIENT_EVENT != 0)
+#endif  // (TCPIP_DHCPS_REPORT_ERROR_EVENT != 0)
+#if (TCPIP_DHCPS_REPORT_CLIENT_EVENT != 0)
     if(evType > 0)
     {
         doNotify = true;
     }
-#endif
+#endif  // (TCPIP_DHCPS_REPORT_CLIENT_EVENT != 0)
 
    if(doNotify)
    {
@@ -990,7 +963,7 @@ static void _DHCPS_NotifyClients(TCPIP_NET_IF* pktIf, TCPIP_DHCPS_EVENT_TYPE evT
 
        memset(&evData, 0, sizeof(evData));
        evData.hNet = (TCPIP_NET_HANDLE)pktIf;
-       evData.evTime = _DHCPS_SecCount();
+       evData.evTime = _TCPIP_SecCountGet();
        evData.evType = (int16_t)evType;
        if(evInfo)
        {
@@ -1310,8 +1283,8 @@ static void _DHCPS_ProcessSkt(UDP_SOCKET skt, uint16_t avlblBytes)
     UDP_SOCKET_INFO     udpSockInfo;
     uint32_t            dhcpCookie;
     int                 ifIx;       // DHCPs interface index
-    BOOTP_HEADER*       pHeader;
     uint8_t*            rxPtr;
+    BOOTP_HEADER*       pHeader = 0;
     TCPIP_DHCPS_EVENT_TYPE evType = TCPIP_DHCPS_EVENT_NONE;
     bool processPkt = false;
     bool accessLocked = false;
@@ -1324,6 +1297,7 @@ static void _DHCPS_ProcessSkt(UDP_SOCKET skt, uint16_t avlblBytes)
     {
         evInfo.flags.val = 0;
 
+        memset(&udpSockInfo, 0, sizeof(udpSockInfo));
         TCPIP_UDP_SocketInfoGet(skt, &udpSockInfo);
         pktIf = (TCPIP_NET_IF*)udpSockInfo.hNet;
 
@@ -1851,7 +1825,7 @@ static TCPIP_DHCPS_LEASE_STATE _DHCPS_ReplyToDiscovery(TCPIP_DHCPS_INTERFACE_DCP
     */
 
     uint32_t cliReqTime;
-    uint32_t currTime = _DHCPS_SecCount();
+    uint32_t currTime = _TCPIP_SecCountGet();
     if(_DHCPS_ClientReqLeaseTime(pIDcpt, pRxOpt, &cliReqTime))
     {   // client wants specific time; restart the lease
         _DHCPS_LeaseRestart(he, cliReqTime);
@@ -1911,7 +1885,7 @@ static TCPIP_DHCPS_LEASE_STATE _DHCPS_ReplyToInform(TCPIP_DHCPS_INTERFACE_DCPT* 
 
     TCPIP_DHCPS_EVENT_TYPE evType = TCPIP_DHCPS_EVENT_INFORM;
     TCPIP_DHCPS_EVENT_DATA_INFO evInfo;
-    evInfo.flags.val = 0;
+    memset(&evInfo, 0, sizeof(evInfo));
 
     evInfo.flags.infoIpValid = 1;
     evInfo.ipAddress = pHeader->ciaddr;
@@ -2166,13 +2140,13 @@ static TCPIP_DHCPS_LEASE_STATE _DHCPReplyToRequest_Ignore(TCPIP_DHCPS_INTERFACE_
 static TCPIP_DHCPS_LEASE_STATE _DHCPReplyToRequest_Bound(TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt, BOOTP_HEADER* pHeader, TCPIP_DHCPS_RX_OPTIONS* pRxOpt, DHCPS_HASH_ENTRY** ppHe)
 {
     TCPIP_DHCPS_EVENT_DATA_INFO evInfo;
-    evInfo.flags.val = 0;
+    memset(&evInfo, 0, sizeof(evInfo));
 
     DHCPS_HASH_ENTRY* he = *ppHe;
 
     TCPIP_DHCPS_LEASE_STATE newState = he->state;
 
-    uint32_t currTime = _DHCPS_SecCount();
+    uint32_t currTime = _TCPIP_SecCountGet();
 
     TCPIP_DHCPS_EVENT_TYPE evType = TCPIP_DHCPS_EVENT_NONE; 
 
@@ -2268,7 +2242,7 @@ static TCPIP_DHCPS_LEASE_STATE _DHCPReplyToRequest_Bound(TCPIP_DHCPS_INTERFACE_D
 static TCPIP_DHCPS_LEASE_STATE _DHCPReplyToRequest_Expired(TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt, BOOTP_HEADER* pHeader, TCPIP_DHCPS_RX_OPTIONS* pRxOpt, DHCPS_HASH_ENTRY** ppHe)
 {
     TCPIP_DHCPS_EVENT_DATA_INFO evInfo;
-    evInfo.flags.val = 0;
+    memset(&evInfo, 0, sizeof(evInfo));
 
     DHCPS_HASH_ENTRY* he = *ppHe;
 
@@ -2390,7 +2364,7 @@ static TCPIP_DHCPS_LEASE_STATE _DHCPReplyToRequest_Expired(TCPIP_DHCPS_INTERFACE
 static TCPIP_DHCPS_LEASE_STATE _DHCPReplyToRequest_Offerred(TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt, BOOTP_HEADER* pHeader, TCPIP_DHCPS_RX_OPTIONS* pRxOpt, DHCPS_HASH_ENTRY** ppHe)
 {
     TCPIP_DHCPS_EVENT_DATA_INFO evInfo;
-    evInfo.flags.val = 0;
+    memset(&evInfo, 0, sizeof(evInfo));
 
     DHCPS_HASH_ENTRY* he = *ppHe;
     TCPIP_DHCPS_EVENT_TYPE evType = TCPIP_DHCPS_EVENT_NONE; 
@@ -2875,7 +2849,7 @@ static bool _DHCPS_SendMessage(DHCPS_HASH_ENTRY* he)
             pIDcpt->statData.arpFailCount++;
 #endif  // (_TCPIP_DHCPS_ENABLE_STATISTICS != 0) 
             TCPIP_DHCPS_EVENT_DATA_INFO evInfo;
-            evInfo.flags.val = 0;
+            memset(&evInfo, 0, sizeof(evInfo));
             evInfo.flags.infoTargetIp = 1;
             evInfo.data = destAdd.v4Add.Val;
             _DHCPS_NotifyClients(pIDcpt->pNetIf, TCPIP_DHCPS_EVENT_ARP_FAIL, he, &evInfo);
@@ -2883,7 +2857,7 @@ static bool _DHCPS_SendMessage(DHCPS_HASH_ENTRY* he)
         else
         {
             he->runFlags |= DHCPS_RUN_FLAG_ARP_INJECT;
-            he->injectTimeMs = _DHCPS_MsecCount();
+            he->injectTimeMs = _TCPIP_MsecCountGet();
             he->injectAdd.Val = destAdd.v4Add.Val;
 #if (_TCPIP_DHCPS_ENABLE_STATISTICS != 0) 
             pIDcpt->statData.arpInjectCount++;
@@ -3019,7 +2993,7 @@ static bool _DHCPS_SendProbe(TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt, DHCPS_HASH_ENTR
 
     if(echoRes >= 0)
     {
-        he->probeStartTimeMs = _DHCPS_MsecCount(); 
+        he->probeStartTimeMs = _TCPIP_MsecCountGet(); 
         he->probeHandle = echoHandle;
         evType = TCPIP_DHCPS_EVENT_ECHO_PROBE_SENT;
 #if (_TCPIP_DHCPS_ENABLE_STATISTICS != 0) 
@@ -3037,7 +3011,7 @@ static bool _DHCPS_SendProbe(TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt, DHCPS_HASH_ENTR
 
     (void)evType;
     TCPIP_DHCPS_EVENT_DATA_INFO evInfo;
-    evInfo.flags.val = 0;
+    memset(&evInfo, 0, sizeof(evInfo));
     evInfo.flags.infoTargetIp = 1;
     evInfo.data = echoRequest.targetAddr.Val;
 
@@ -3068,15 +3042,13 @@ static void _DHCPS_ProcessTick(void)
     int ifIx, bktIx;
     OA_HASH_DCPT    *pOH;
 
-    _DHCPS_SecondCountSet();
-
     if(_DHCPS_AccessLock() == false)
     {
         _DHCPS_NotifyClients(0, TCPIP_DHCPS_EVENT_TICK_LOCK, 0, 0);
         return;
     } 
 
-    uint32_t currMsec = _DHCPS_MsecCount();
+    uint32_t currMsec = _TCPIP_MsecCountGet();
 
     TCPIP_DHCPS_DCPT* pDcpt = gDhcpDcpt;
 
@@ -3163,7 +3135,7 @@ static void _DHCPS_TickFnc_ProbeSend(DHCPS_HASH_ENTRY* he)
 // TCPIP_DHCPS_LEASE_STATE_WAIT_PROBE
 static void _DHCPS_TickFnc_ProbeWait(DHCPS_HASH_ENTRY* he)
 {
-    uint32_t currMs = _DHCPS_MsecCount(); 
+    uint32_t currMs = _TCPIP_MsecCountGet(); 
     if((currMs - he->probeStartTimeMs) >= gDhcpDcpt->probeTmoMs)
     {   // timeout expired and no reply; 
         // check if we need more probes...
@@ -3185,7 +3157,7 @@ static void _DHCPS_TickFnc_ProbeWait(DHCPS_HASH_ENTRY* he)
 static void _DHCPS_TickFnc_Reprobe(DHCPS_HASH_ENTRY* he)
 {
     TCPIP_DHCPS_EVENT_DATA_INFO evInfo;
-    evInfo.flags.val = 0;
+    memset(&evInfo, 0, sizeof(evInfo));
 
     TCPIP_DHCPS_EVENT_TYPE evType = TCPIP_DHCPS_EVENT_NONE; 
     bool abort = false;
@@ -3245,7 +3217,7 @@ static void _DHCPS_TickFnc_Offered(DHCPS_HASH_ENTRY* he)
     TCPIP_DHCPS_INTERFACE_DCPT* pIDcpt = he->parent;
     if((pIDcpt->configFlags & TCPIP_DHCPS_CONFIG_FLAG_KEEP_UNREQ_OFFERS) == 0)
     {
-        uint32_t currTime = _DHCPS_SecCount();
+        uint32_t currTime = _TCPIP_SecCountGet();
         if((currTime - he->leaseStartTime) >= pIDcpt->unreqOfferTmo)
         {
             // remove and mark the IP address as available
@@ -3257,7 +3229,7 @@ static void _DHCPS_TickFnc_Offered(DHCPS_HASH_ENTRY* he)
 // TCPIP_DHCPS_LEASE_STATE_BOUND
 static void _DHCPS_TickFnc_Bound(DHCPS_HASH_ENTRY* he)
 {
-    uint32_t currTime = _DHCPS_SecCount();
+    uint32_t currTime = _TCPIP_SecCountGet();
 
     if(he->state == TCPIP_DHCPS_LEASE_STATE_BOUND)
     {
@@ -3385,7 +3357,7 @@ static bool _DHCPS_LeaseEntryPopulate(DHCPS_HASH_ENTRY* he, TCPIP_DHCPS_LEASE_IN
 
             if(he->state == TCPIP_DHCPS_LEASE_STATE_BOUND)
             {
-                uint32_t currTime = _DHCPS_SecCount();
+                uint32_t currTime = _TCPIP_SecCountGet();
                 _DhcpsAssert(he->leaseEndTime >= currTime, __func__, __LINE__);
                 pLeaseInfo->leaseTime = he->leaseEndTime - currTime;
             }
