@@ -3,6 +3,45 @@
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
+## Network Application Examples for PIC32CZ_CA Family, v3.10.0
+
+### New Features
+- Support for MAC RX/TX Checksum offload feature.
+- Support for GMAC RGMII/GMII 10/100.
+
+### Improvements and Bug Fixes
+- IPERF throughput improvement.
+- Fix for GMAC driver critical section access issue.
+- ETHPHY driver write function.
+- Fix for bind operation in berkeley module.
+- Fix for 'IntegerSymbol not found' MCC failure.
+- Updated demo documentation.
+
+### Known Issues
+- Build warnings for third_party/wolfMQTT/mqtt_socket.c in wolfMQTT demo. Workaround is to uncheck 'Make warnings into errors' in xc32 options.
+
+### Development Tools
+
+- [MPLAB® X IDE, v6.15](https://www.microchip.com/mplab/mplab-x-ide) or later
+- [MPLAB® XC32 C/C++ Compiler, v4.35](https://www.microchip.com/mplab/compilers) or later
+- [MPLAB® Code Configurator(MCC) Plugin, v5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator) or later
+- [MPLAB® Harmony v3 net repository, v3.11.0](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.11.0)
+- [MPLAB® Harmony v3 net\_apps\_pic32cz\_ca demo apps repository, v3.10.0](https://github.com/Microchip-MPLAB-Harmony/net_apps_pic32cz_ca/tree/v3.10.0)
+
+### Development Kit Support
+
+This release supports applications for the following development kit.
+
+| Development Kits |
+| --- |
+| [PIC32CZ_CA80 Curiosity Ultra Board](https://www.microchip.com/en-us/development-tool/EA61X20A) |
+
+## Net Release Notes
+
+- See the [Net 3.11.0 Release Notes](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.11.0)
+
+---
+
 ## Harmony 3 Network application examples for PIC32CZ_CA family  v3.9.0
 
 ### New Features
