@@ -18,7 +18,7 @@
 - Updated demo documentation.
 
 ### Known Issues
-- Build warnings for third_party/wolfMQTT/mqtt_socket.c in wolfMQTT demo. Workaround is to uncheck 'Make warnings into errors' in xc32 options.
+None
 
 ### Development Tools
 
